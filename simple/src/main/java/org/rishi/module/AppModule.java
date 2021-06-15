@@ -1,6 +1,8 @@
 package org.rishi.module;
 
 import com.google.inject.AbstractModule;
+import org.rishi.request.SquareRequestCI;
+import org.rishi.request.SquareRequestSub;
 import org.rishi.service.DrawShape;
 import org.rishi.service.DrawSquare;
 
@@ -12,5 +14,6 @@ public class AppModule extends AbstractModule {
     @Override
     protected void configure() {
         bind(DrawShape.class).to(DrawSquare.class);
+        bind(SquareRequestCI.class).to(SquareRequestSub.class);
     }
 }

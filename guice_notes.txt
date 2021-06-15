@@ -1,0 +1,17 @@
+# basics
+
+- Create a class to extend AbstractModule and override configure()
+provide bind() method to map interface or parent class to concrete implementation or subclass
+
+- in the main(), create Injector
+Injector injector = Guice.createInjector(new AppModule());
+
+- with Interface reference, can use injector to get actual object
+SquareRequestCI r = injector.getInstance(SquareRequestCI.class);
+
+- for the constructor injection, should be annotated with @Inject
+@Inject
+public SquareRequestCI(DrawShape d) {
+    this.d = d;
+}
+
