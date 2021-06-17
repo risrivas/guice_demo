@@ -15,3 +15,10 @@ public SquareRequestCI(DrawShape d) {
     this.d = d;
 }
 
+- binding can also be done on String or Integer, for ex:
+bind(String.class).toInstance("Red");
+bind(Integer.class).toInstance(40);
+
+- however, better way is to create an annotation
+bind(String.class).annotatedWith(ColorValue.class).toInstance("Red");
+bind(Integer.class).annotatedWith(EdgeValue.class).toInstance(40);

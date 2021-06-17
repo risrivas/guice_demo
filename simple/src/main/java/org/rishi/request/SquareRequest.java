@@ -1,7 +1,5 @@
 package org.rishi.request;
 
-import org.rishi.service.DrawSquare;
-
 /**
  * Created by rishi on 15/06/2021
  * <p>
@@ -12,10 +10,10 @@ import org.rishi.service.DrawSquare;
  */
 public class SquareRequest {
 
-    private final DrawSquare d = new DrawSquare();
+    /*private final DrawSquare d = new DrawSquare();
 
     public void makeRequest() {
         d.draw();
-    }
+    }*/
 
 }
