@@ -18,9 +18,18 @@ public class Main {
 
             Injector injector = Guice.createInjector(new AppModule());
             // DrawShape d = injector.getInstance(DrawShape.class);
-            // SquareRequestCI r = new SquareRequestCI(d);
-            SquareRequestCI r = injector.getInstance(SquareRequestCI.class);
-            r.makeRequest();
+            // SquareRequestCI request = new SquareRequestCI(d);
+            SquareRequestCI request1 = injector.getInstance(SquareRequestCI.class);
+            request1.makeRequest();
+
+            SquareRequestCI request2 = injector.getInstance(SquareRequestCI.class);
+            request2.makeRequest();
+
+            boolean areDrawShapesEqual = request1.getDrawShape() == request2.getDrawShape();
+            System.out.println("Are draw shapes equal? " + areDrawShapesEqual);
+
+            boolean areShapeRequestsEqual = request1 == request2;
+            System.out.println("Are shape requests equal? " + areShapeRequestsEqual);
         }
     }
 

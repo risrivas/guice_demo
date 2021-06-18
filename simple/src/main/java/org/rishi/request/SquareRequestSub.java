@@ -16,6 +16,6 @@ public class SquareRequestSub extends SquareRequestCI {
     @Override
     public void makeRequest() {
         System.out.println("Subclass - delegating to draw");
-        d.draw();
+        drawShape.draw();
     }
 }

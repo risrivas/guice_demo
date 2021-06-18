@@ -10,14 +10,18 @@ import org.rishi.service.DrawShape;
  */
 public class SquareRequestCI {
 
-    protected final DrawShape d;
+    protected final DrawShape drawShape;
 
     @Inject
-    public SquareRequestCI(DrawShape d) {
-        this.d = d;
+    public SquareRequestCI(DrawShape drawShape) {
+        this.drawShape = drawShape;
     }
 
     public void makeRequest() {
-        d.draw();
+        drawShape.draw();
+    }
+
+    public DrawShape getDrawShape() {
+        return drawShape;
     }
 }

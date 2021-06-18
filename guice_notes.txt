@@ -22,3 +22,9 @@ bind(Integer.class).toInstance(40);
 - however, better way is to create an annotation
 bind(String.class).annotatedWith(ColorValue.class).toInstance("Red");
 bind(Integer.class).annotatedWith(EdgeValue.class).toInstance(40);
+
+- guice creates Object Graph for all the dependencies binded in AbstractModule
+
+- create a singleton
+bind(SquareRequestCI.class).to(SquareRequestSub.class).in(Scopes.SINGLETON);
+
