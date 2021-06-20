@@ -1,19 +1,36 @@
 package org.rishi.request;
 
+import com.google.inject.Inject;
+import org.rishi.service.DrawShape;
+
 /**
  * Created by rishi on 15/06/2021
  * <p>
- * Problems:
- * Tightly coupled
- * Breaks Single Responsibility Principle
- * Not good for Unit Tests
+ * Constructor Injection
  */
 public class SquareRequest {
 
-    /*private final DrawSquare d = new DrawSquare();
+    // Field injection
+    @Inject
+    private DrawShape drawShape;
 
-    public void makeRequest() {
-        d.draw();
+    // Constructor Injection
+    /*@Inject
+    public SquareRequest(DrawShape drawShape) {
+        this.drawShape = drawShape;
     }*/
 
+    // Method injection
+    /*@Inject
+    public void setDrawShape(DrawShape drawShape) {
+        this.drawShape = drawShape;
+    }*/
+
+    public void makeRequest() {
+        drawShape.draw();
+    }
+
+    public DrawShape getDrawShape() {
+        return drawShape;
+    }
 }
