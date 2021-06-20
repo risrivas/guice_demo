@@ -28,3 +28,9 @@ bind(Integer.class).annotatedWith(EdgeValue.class).toInstance(40);
 - create a singleton
 bind(SquareRequestCI.class).to(SquareRequestSub.class).in(Scopes.SINGLETON);
 
+
+# ways of injections
+- same as Spring - can inject using 
+Constructor, Method setter, or directly on field member
+
+ 
