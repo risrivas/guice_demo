@@ -1,4 +1,6 @@
+##########
 # basics
+##########
 
 - Create a class to extend AbstractModule and override configure()
 provide bind() method to map interface or parent class to concrete implementation or subclass
@@ -28,15 +30,47 @@ bind(Integer.class).annotatedWith(EdgeValue.class).toInstance(40);
 - create a singleton
 bind(SquareRequestCI.class).to(SquareRequestSub.class).in(Scopes.SINGLETON);
 
+####################
 # ways of injections
+####################
+
 - same as Spring - can inject using 
 Constructor, Method setter, or directly on field member
 
+
+##################################################
 # 2 concrete implementations of the same interface
+##################################################
+
 - to chose one, annotations can be used same as above for Color and edge
 
 bind(DrawShape.class).annotatedWith(Square.class).to(DrawSquare.class);
 bind(DrawShape.class).annotatedWith(Circle.class).to(DrawCircle.class); 
 
 now that annotation can be used wherever we are using @Inject
+
+###################
+# Named annotations
+###################
+
+- instead of using our own annotation, can use Named annotations 
+- we dont need to create our annotations
+- best practice is not to use named annotations
+
+
+bind(DrawShape.class).annotatedWith(Names.named("Square")).to(DrawSquare.class);
+bind(DrawShape.class).annotatedWith(Names.named("Circle")).to(DrawCircle.class);
+
+@Inject
+public CircleRequest(@Named("Circle") DrawShape drawShape) {
+        this.drawShape = drawShape;
+}
+
+
+###################
+# Creating complex objects with @Provide methods
+###################
+
+
+
 
