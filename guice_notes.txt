@@ -71,6 +71,18 @@ public CircleRequest(@Named("Circle") DrawShape drawShape) {
 # Creating complex objects with @Provide methods
 ###################
 
+- if we can not use @Inject as its a third party jar
+- as there is no default constructor, we can not use bind method in AppModule configure()
+- instead we can provide a custom method in AppModule and annotate with @Provides
+
+@Provides
+DrawShape providesDrawSquare() {
+        DrawShape d = new DrawSquare("Red", 40);
+        return d;
+}
+
+
+
 
 
 

@@ -1,7 +1,6 @@
 package org.rishi.request;
 
 import com.google.inject.Inject;
-import com.google.inject.name.Named;
 import org.rishi.service.DrawShape;
 
 /**
@@ -14,7 +13,7 @@ public class SquareRequest {
     private final DrawShape drawShape;
 
     @Inject
-    public SquareRequest(@Named("Square") DrawShape drawShape) {
+    public SquareRequest(DrawShape drawShape) {
         this.drawShape = drawShape;
     }
 
