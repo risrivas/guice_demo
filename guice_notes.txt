@@ -57,7 +57,6 @@ now that annotation can be used wherever we are using @Inject
 - we dont need to create our annotations
 - best practice is not to use named annotations
 
-
 bind(DrawShape.class).annotatedWith(Names.named("Square")).to(DrawSquare.class);
 bind(DrawShape.class).annotatedWith(Names.named("Circle")).to(DrawCircle.class);
 
@@ -81,8 +80,17 @@ DrawShape providesDrawSquare() {
         return d;
 }
 
+- use @Singleton to provide singleton
+@Provides
+@Singleton
+DrawShape providesDrawSquare() {
 
-
-
+- arguments can be again annotated and bind() 
+@Provides
+@Singleton
+DrawShape providesDrawSquare(@ColorValue String color, @EdgeSize Integer edge) {
+        DrawShape d = new DrawSquare(color, edge);
+        return d;
+}
 
 
