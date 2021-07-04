@@ -1,7 +1,7 @@
 package org.rishi.request;
 
 import com.google.inject.Inject;
-import org.rishi.annotations.Square;
+import org.rishi.annotations.Circle;
 import org.rishi.service.DrawShape;
 
 /**
@@ -9,12 +9,12 @@ import org.rishi.service.DrawShape;
  * <p>
  * Constructor Injection
  */
-public class SquareRequest {
+public class CircleRequest {
 
     private final DrawShape drawShape;
 
     @Inject
-    public SquareRequest(@Square DrawShape drawShape) {
+    public CircleRequest(@Circle DrawShape drawShape) {
         this.drawShape = drawShape;
     }
 

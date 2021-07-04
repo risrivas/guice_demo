@@ -34,7 +34,7 @@ bind(SquareRequestCI.class).to(SquareRequestSub.class).in(Scopes.SINGLETON);
 # ways of injections
 ####################
 
-- same as Spring - can inject using 
+- same as Spring - can inject using
 Constructor, Method setter, or directly on field member
 
 
@@ -45,7 +45,7 @@ Constructor, Method setter, or directly on field member
 - to chose one, annotations can be used same as above for Color and edge
 
 bind(DrawShape.class).annotatedWith(Square.class).to(DrawSquare.class);
-bind(DrawShape.class).annotatedWith(Circle.class).to(DrawCircle.class); 
+bind(DrawShape.class).annotatedWith(Circle.class).to(DrawCircle.class);
 
 now that annotation can be used wherever we are using @Inject
 
@@ -53,7 +53,7 @@ now that annotation can be used wherever we are using @Inject
 # Named annotations
 ###################
 
-- instead of using our own annotation, can use Named annotations 
+- instead of using our own annotation, can use Named annotations
 - we dont need to create our annotations
 - best practice is not to use named annotations
 
@@ -66,10 +66,11 @@ public CircleRequest(@Named("Circle") DrawShape drawShape) {
 }
 
 
-###################
+#################################################
 # Creating complex objects with @Provide methods
-###################
+#################################################
 
+- Complex objects means creating objects not using default constructor
 - if we can not use @Inject as its a third party jar
 - as there is no default constructor, we can not use bind method in AppModule configure()
 - instead we can provide a custom method in AppModule and annotate with @Provides
@@ -85,12 +86,22 @@ DrawShape providesDrawSquare() {
 @Singleton
 DrawShape providesDrawSquare() {
 
-- arguments can be again annotated and bind() 
+- arguments can be again annotated and bind()
 @Provides
 @Singleton
 DrawShape providesDrawSquare(@ColorValue String color, @EdgeSize Integer edge) {
         DrawShape d = new DrawSquare(color, edge);
         return d;
 }
+
+
+- if we have multiple implementations of DrawShape - like DrawCircle and DrawSquare
+- need to create separate annotations and add it to provider methods in AppModule
+
+
+#################################################
+# Creating complex objects with Provider classes
+#################################################
+
 
 
