@@ -102,6 +102,11 @@ DrawShape providesDrawSquare(@ColorValue String color, @EdgeSize Integer edge) {
 #################################################
 # Creating complex objects with Provider classes
 #################################################
+- instead of using annotations @Provides in AppModule class, we can create separate Provider class
+- in the bind() method, provide Provider class binding
+- example:
+bind(DrawShape.class).toProvider(DrawShapeProvider.class);
+
 
 
 
