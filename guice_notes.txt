@@ -119,6 +119,17 @@ bind(DrawShape.class).toProvider(DrawShapeProvider.class);
         bind(Integer.class).annotatedWith(Radius.class).toInstance(5);
 -
 
+#################################
+# Injecting using Provider class
+#################################
+- whenever guice tries to create a object, it looks for default constructor first
+- if no default constructor present, it will look for other constructors => but it should be @Inject
+- example
+private final Provider<DrawSquare> squareProvider;
 
+- whenever get() method is called, guice will try to create <DrawSquare> object
+DrawSquare d1 = squareProvider.get();
+
+- this mechanism helps to create any number of objects as needed
 
 

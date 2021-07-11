@@ -1,10 +1,8 @@
 package org.rishi.module;
 
 import com.google.inject.AbstractModule;
-import com.google.inject.Scopes;
-import org.rishi.annotations.*;
-import org.rishi.providers.DrawCircleProvider;
-import org.rishi.providers.DrawSquareProvider;
+import org.rishi.annotations.EdgeSize;
+import org.rishi.annotations.SquareColorValue;
 import org.rishi.service.DrawShape;
 
 /**
@@ -14,13 +12,14 @@ public class AppModule extends AbstractModule {
 
     @Override
     protected void configure() {
-        bind(DrawShape.class).annotatedWith(Square.class).toProvider(DrawSquareProvider.class).in(Scopes.SINGLETON);
+//        bind(DrawShape.class).annotatedWith(Square.class).toProvider(DrawSquareProvider.class).in(Scopes.SINGLETON);
+        // bind(DrawShape.class).toProvider(DrawSquareProvider.class);
         bind(String.class).annotatedWith(SquareColorValue.class).toInstance("Red");
         bind(Integer.class).annotatedWith(EdgeSize.class).toInstance(40);
 
-        bind(DrawShape.class).annotatedWith(Circle.class).toProvider(DrawCircleProvider.class).in(Scopes.SINGLETON);
-        bind(String.class).annotatedWith(CircleColorValue.class).toInstance("Blue");
-        bind(Integer.class).annotatedWith(Radius.class).toInstance(5);
+//        bind(DrawShape.class).annotatedWith(Circle.class).toProvider(DrawCircleProvider.class).in(Scopes.SINGLETON);
+//        bind(String.class).annotatedWith(CircleColorValue.class).toInstance("Blue");
+//        bind(Integer.class).annotatedWith(Radius.class).toInstance(5);
     }
 
 }
