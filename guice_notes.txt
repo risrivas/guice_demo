@@ -117,7 +117,7 @@ bind(DrawShape.class).toProvider(DrawShapeProvider.class);
         bind(DrawShape.class).annotatedWith(Circle.class).toProvider(DrawCircleProvider.class).in(Scopes.SINGLETON);
         bind(String.class).annotatedWith(CircleColorValue.class).toInstance("Blue");
         bind(Integer.class).annotatedWith(Radius.class).toInstance(5);
--
+
 
 #################################
 # Injecting using Provider class
@@ -131,5 +131,12 @@ private final Provider<DrawSquare> squareProvider;
 DrawSquare d1 = squareProvider.get();
 
 - this mechanism helps to create any number of objects as needed
+
+
+############################
+# JIT and Built-in bindings
+############################
+- we can only have Provider field reference without having bindings in bind()
+- Built-in bindings will use embedded bindings in guice module to find the dependency object
 
 
