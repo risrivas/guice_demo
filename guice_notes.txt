@@ -140,3 +140,21 @@ DrawSquare d1 = squareProvider.get();
 - Built-in bindings will use embedded bindings in guice module to find the dependency object
 
 
+############
+# Inject Set
+############
+- use Multibinder in configure()
+- example:
+Multibinder<DrawShape> drawShapebinder = Multibinder.newSetBinder(binder(), DrawShape.class);
+drawShapebinder.addBinding().to(DrawSquare.class);
+drawShapebinder.addBinding().to(DrawCircle.class);
+
+
+###############
+# Multi-modules
+###############
+- we can have many app modules where we can have specific bindings for a particular package / module
+Injector injector = Guice.createInjector(new AppModule1(), new AppModule2());
+
+- can also install another module in configure()
+install(new AppModule2());
